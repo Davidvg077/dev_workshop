@@ -302,7 +302,10 @@ class Geometria:
         Returns:
             float: Pendiente de la recta
         """
-        pass
+        if x1 == x2:
+            raise ZeroDivisionError("pendiente no definida")
+        return round ((y2 - y1) / (x2 - x1), 2)
+    
     
     def ecuacion_recta(self, x1, y1, x2, y2):
         """
