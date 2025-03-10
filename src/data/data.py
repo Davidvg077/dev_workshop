@@ -49,10 +49,11 @@ class Data:
         """
         resultado = []
         for elemento in lista:
+
             if elemento not in resultado:
                 resultado.append(elemento)
-
-        return resultado
+        return resultado        
+       
                              
     
     def merge_ordenado(self, lista1, lista2):
