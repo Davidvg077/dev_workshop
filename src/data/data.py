@@ -144,7 +144,15 @@ class Data:
         Returns:
             dict: Diccionario con métodos push, pop, peek y is_empty
         """
-        pass
+        pila = []
+
+        return {
+            "push": lambda x: pila.append(x),
+            "pop": lambda: pila.pop() if pila else None,
+            "peek": lambda: pila[-1] if pila else None,
+            "is_empty": lambda: len(pila) == 0
+
+        }
     
     def implementar_cola(self):
         """
