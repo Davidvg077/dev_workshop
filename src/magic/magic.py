@@ -32,7 +32,15 @@ class Magic:
         Returns:
             list: Lista con los primeros n números de Fibonacci
         """
-        
+        fibonacci = [0,1]
+
+        for i in range(2,n):
+            fibonacci.append(fibonacci[i-1]+fibonacci[i-2])
+
+        if n == 1:
+            return [0]
+
+        return fibonacci[:n]    
             
         
     
@@ -181,7 +189,10 @@ class Magic:
         Returns:
             bool: True si n es un número de Armstrong, False en caso contrario
         """
-        pass
+        num_str = str(n)
+        num_digits = len(num_str)
+        suma = sum(int(digit) ** num_digits for digit in num_str)
+        return suma == n
     
     def es_cuadrado_magico(self, matriz):
         """
@@ -193,4 +204,18 @@ class Magic:
         Returns:
             bool: True si es un cuadrado mágico, False en caso contrario
         """
-        pass
+        for fila in matriz:
+            if sum(fila) != suma_referencia:
+                return False
+            
+        for col in range(n):
+            if sum(matriz[fila][col]for fila in range(n)) != suma_referencia:
+                return False
+
+        if sum(matriz[i][i] for i in range(n)) != suma_referencia:
+            return False
+
+        if sum(matriz[i][n - 1 -i] for i in range(n)) != suma_referencia:
+            return False
+
+        return True        
