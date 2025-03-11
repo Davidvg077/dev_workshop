@@ -106,7 +106,7 @@ class Magic:
                 fila.append(pascal[i-1][j-1]+pascal[i-1][j])
             fila.append(1)
             pascal.append(fila)
-            
+
         return pascal        
     
     def factorial(self, n):
@@ -119,7 +119,11 @@ class Magic:
         Returns:
             int: El factorial de n
         """
-        pass
+        if n == 0 or n == 1:
+            return 1 
+        else:
+            return n * self.factorial(n-1)
+        
     
     def mcd(self, a, b):
         """
@@ -132,7 +136,9 @@ class Magic:
         Returns:
             int: El máximo común divisor de a y b
         """
-        pass
+        while b != 0:
+            a, b = b , a % b
+        return a   
     
     def mcm(self, a, b):
         """
