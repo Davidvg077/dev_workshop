@@ -1,3 +1,6 @@
+import math
+
+
 class Magic:
     """
     Clase con métodos para juegos matemáticos, secuencias especiales y algoritmos numéricos.
@@ -29,7 +32,9 @@ class Magic:
         Returns:
             list: Lista con los primeros n números de Fibonacci
         """
-        pass
+        
+            
+        
     
     def es_primo(self, n):
         """
@@ -41,7 +46,13 @@ class Magic:
         Returns:
             bool: True si n es primo, False en caso contrario
         """
-        pass
+        if n <= 1:
+            return False
+        for i in range(2, int(math.sqrt(n))+1):
+            if n % i == 0:
+                return False
+        return True    
+
     
     def generar_primos(self, n):
         """
