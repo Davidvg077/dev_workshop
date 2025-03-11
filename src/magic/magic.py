@@ -80,7 +80,13 @@ class Magic:
         Returns:
             bool: True si n es un número perfecto, False en caso contrario
         """
-        pass
+        if n <= 1:
+            return False
+        suma_divisores = 0
+        for i in range(1, n // 2 + 1):
+            if n % i == 0:
+                suma_divisores += i 
+        return suma_divisores == n        
     
     def triangulo_pascal(self, filas):
         """
@@ -92,7 +98,16 @@ class Magic:
         Returns:
             list: Lista de listas que representa el triángulo de Pascal
         """
-        pass
+        pascal = [[1]]
+
+        for i in range(1,filas):
+            fila = [1]
+            for j in range (1,i):
+                fila.append(pascal[i-1][j-1]+pascal[i-1][j])
+            fila.append(1)
+            pascal.append(fila)
+            
+        return pascal        
     
     def factorial(self, n):
         """
